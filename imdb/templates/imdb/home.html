@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
+	<script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script>
+
+<style>
+.ui-slider-popup {
+    text-align: center;
+
+    padding-right: auto;
+    z-index: 100;
+    opacity: 0.8;
+    font-size: 16px
+}
+
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+      .btn-toolbar a{
+    margin: 4px;
+}
+</style>
+
+    </br>
+    </br>
+    </br>
+
+  <main role="main" class="inner cover">
+  <h6>This website extends IMDb’s top 250 rating to the top 10,000 movies listed in their database.
+          IMDB uses a weighted rating known as a credibility formula. Although the current formula is undisclosed,
+          the original formula is available and still closely matches the current top 250 results displayed
+          on their website.</h6>
+  </br>
+  </br>
+          <h3>Browse by</h3>
+      <div class="centered" id="browse">
+          <div class="btn-toolbar">
+          <a class="btn-default" href="{% url 'browse' category='rank' page=1 %}" role="button">Rank</a>
+          <a class="btn-default" href="{% url 'browse' category='year' page=1 %}" role="button">Year</a>
+          <a class="btn-default" href="{% url 'browse' category='rating' page=1 %}" role="button">Rating</a>
+          <a class="btn-default" href="{% url 'browse' category='num_votes' page=1 %}" role="button">Number of Votes</a>
+          </div>
+      </div>
+  </br>
+     <h3>Or</h3>
+
+
+
+ <form action="{% url 'search' page=1%}" method="POST" data-ajax=”false”>
+      {% csrf_token %}
+<div class="form-row">
+    <div class="form-group col-md-6" >
+      <label for="title">Title</label>
+      <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+    </div>
+        <div class="form-group col-md-6" >
+    <div data-role="rangeslider">
+        <label for="min-year">Year</label>
+        <input type="range" name="min-year" id="min-year" min="1915" max="2019" value="1915" data-popup-enabled="true" data-show-value="false">
+        <label for="max-year">Year</label>
+        <input type="range" name="max-year"  id="max-year" min="1915" max="2019" value="2019" data-popup-enabled="true" data-show-value="false">
+    </div>
+        </div>
+</div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+    <div data-role="rangeslider">
+        <label for="min-rank">Rank</label>
+        <input type="range" name="min-rank" id="min-rank" min="1" max="9999" value="1" data-popup-enabled="true" data-show-value="false">
+        <label for="max-rank">Rank</label>
+        <input type="range" name="max-rank" id="max-rank" min="1" max="9999" value="9999" data-popup-enabled="true" data-show-value="false">
+    </div>
+        </div>
+
+        <div class="form-group col-md-6">
+    <div data-role="rangeslider">
+        <label for="min-rating">Rating</label>
+        <input type="range" name="min-rating" id="min-rating" min="7" max="10" value="7" data-popup-enabled="true" data-show-value="false">
+        <label for="max-rating">Rating</label>
+        <input type="range" name="max-rating" id="max-rating" min="7" max="10" value="10" data-popup-enabled="true" data-show-value="false">
+    </div>
+        </div>
+
+    </div>
+
+          <div class="form-row">
+
+              <div class="form-group col-md-6">
+    <div data-role="rangeslider">
+        <label for="min-votes">Votes</label>
+        <input type="range" name="min-votes" id="min-votes" min="105" max="2135820" value="105" data-popup-enabled="true" data-show-value="false">
+        <label for="max-votes">Votes</label>
+        <input type="range" name="max-votes" style="font-size: x-small" id="max-votes" min="105" max="2135820" value="2135820" data-popup-enabled="true" data-show-value="false">
+    </div>
+        </div>
+
+              <div class="form-group col-md-6">
+    <div data-role="rangeslider">
+        <label for="min-runtime">Running Time</label>
+        <input type="range" name="min-runtime" id="min-runtime" min="14" max="1440" value="14" data-popup-enabled="true" data-show-value="false">
+        <label for="max-runtime">Running Time</label>
+        <input type="range" name="max-runtime" id="max-runtime" min="14" max="1440" value="1440" data-popup-enabled="true" data-show-value="false">
+    </div>
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+  </main>
+
+  {% endblock %}

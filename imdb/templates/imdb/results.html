@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br/>
+    <h2>Movies by {{ category }}</h2>
+
+        <div class="row">
+    {% for result in results %}
+        <li class="list-group-item col-md-3">
+        <strong>{{ result.title }}</strong> ({{ result.year }}) Rank: {{ result.rank }}
+            Rating: {{ result.rating }}/10 {{ result.votes }} Votes: {{ result.num_votes }} Runtime: {{ result.runtime }} min
+        <!--
+                Displays web scraped info from views.details but found out IMDB's Terms of Service forbids web scraping after I
+        already wrote this
+
+        <form action="url to 'details" method="POST">
+            {% csrf_token %}
+        <input name="movie" id="movie" value="{{ result.id }}" type="hidden">
+            <input name="page" id="page" value="{{ page }}" type="hidden">
+            <input name="category" id="category" value="{{ category }}" type="hidden">
+            <button class="btn btn-secondary btn-sm" type="submit">More info</button>
+        </form>
+
+
+        {% if messages%}
+            {% if movie.id == result.id %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+        {% endif %}
+        <>
+        </li>
+        -->
+
+    {% endfor %}
+        </div>
+
+       <nav aria-label="Page navigation example">
+  <ul id="pagination" class="pagination pagination-sm justify-content-center">
+<li class="page-item"><a class="page-link" href="{% url 'browse' category=category page=1 %}">First</a></li>
+
+{% for page_num in display_pages %}
+
+    <li class="page-item{% if page == page_num %} active{% endif %} "><a class="page-link" href="{% url 'browse' category=category page=page_num %}">{{ page_num }}</a></li>
+
+    {% endfor %}
+  <li class="page-item"><a class="page-link" href="{% url 'browse' category=category page=total_pages %}">Last</a></li>
+  </ul>
+</nav>
+
+{% endblock %}

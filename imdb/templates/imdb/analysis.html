@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{%  load static %}
+{% block content %}
+<main>
+<h2>Analyzing IMDb Data</h2>
+    <p>I wanted to work with a larger dataset and chose to work with movies found in <a href="https://www.imdb.com/interfaces/">IMDb's
+    dataset.</a> After merging different TSV files with the content I wanted and cleaning up the data, I was left with
+    522,000 rows and 6 columns. Below are the interesting trends I found.</p>
+<h2>Number of Movies Produced Every Year</h2>
+      <img src="{% static 'movies-vs-year.png' %}" height="40%" width="40%">
+<p>The successful first public screening was of ten short films produced by the Lumière brothers' on December 28, 1895
+    in Paris. In the early 20th century, the motion picture industry was based in Fort Lee, New Jersey, across the
+    Hudson River from New York. In 1908 the industry was in need of warmer headquarters during the winter and
+    Jacksonville, Florida became ‘The Winter Film Capital of the World’ thanks to its exotic locations, rail access,
+    and cheap labor. Over the next decade 30 silent film companies were established (including MGM) and created a large
+    increase in the amount of movies made. In the 2000s online movie streaming services such as Youtube and Netflix made
+    it even more accessible to watch movies. Along with this rise in movie demand, cheaper camera equipment made it
+    easier for more and more independent filmmakers to produce movies.</p>
+</br>
+  <h2>Average Movie Rating per year</h2>
+      <img src="{% static 'ratings-vs-year.png' %}" height="40%" width="40%">
+<p>Since these ratings are from IMDb users, many of the older movies aren’t rated around their release date by the people
+    of that time. With this in mind, the figure above still shows the average rating for a movie produced in any year is around
+    a 6. Over time, the trend shows that users are not as hesitant to give ratings on either end of the 10 point scale.
+</p>
+  </br>
+      <h2>Average Rating vs Number of Votes</h2>
+      <img src="{% static 'ratings-vs-votes.png' %}" height="40%" width="40%">
+<p> As the number of votes for a movie increases, the rating regresses to the mean with a value
+    between 6-8. Suggesting that movies falling on the extreme ends of the rating system (shown in figure 2) occurred
+    with less popular movies having lower amounts of movie votes. </p>
+</br>
+      <h2>Movie Running Time vs Year</h2>
+
+<p>Unfortunately many early films are categorized as shorts (instead of movies) which made them difficult to compare to
+    modern movies. For this reason, movies before 1915 were dropped from this analysis because short films needed to be
+    removed from the entire dataset. Once short films were removed from the dataset there were only a few films
+    categorized as movies left in the early years that misconstrued the data. For example, in 1899 only one film is
+    categorized as a movie (“The Wrestlers”) which is 135 minutes long and does not accurately represent that average
+    length of a film during that time.
+    </br>
+    </br>
+    <img src="{% static 'runtime-vs-year.png' %}" height="40%" width="40%">
+      </br>
+    The average running length of a film gradually increased until it remained steady at around 90 minutes. </p>
+</br>
+      <h2>Number of Votes vs Running Time</h2>
+      <img src="{% static 'votes-vs-runtime.png' %}" height="40%" width="40%">
+<p>Most of the movies produced are between 60-120 minutes long and the ones that get talked about the most are almost
+      all within 70-120 minutes.</p>
+</br>
+    <h2>Rating vs Running Time</h2>
+<img src="{% static 'ratings-vs-runtime.png' %}" height="40%" width="40%">
+<p>Interestingly, longer movies don’t seem to get low ratings. But keeping the previous figure in mind, they also don’t
+               get talked about as much either.</p>
+</main>
+{% endblock %}
