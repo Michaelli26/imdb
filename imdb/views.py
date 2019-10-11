@@ -37,7 +37,7 @@ def search(request, page=1):
         context = {'num_results': results.count(), 'min_year': min_year, 'max-year': max_year, 'min_rank': min_rank,
                    'max-rank': max_rank, 'min_rating': min_rating, 'max-rating': max_rating, 'min_votes': min_votes,
                    'max-votes': max_votes, 'min_runtime': min_runtime, 'max-runtime': max_runtime, 'results': results,
-                   'criteria': criteria,
+                   #'criteria': criteria,
                    }
         return render(request, 'search.html', context=context)
     else:
