@@ -24,8 +24,8 @@ def browse(request, category, page, context={}):
     total_pages = math.ceil(total_results/results_per_page)
 
     context['total_pages'] = total_pages
-    movies = Movie.objects.order_by(category)
-    if category == 'rating':
+    movies = Movie.objects.order_by('-'+category)
+    if category == 'rank':
         movies = movies.reverse()
     if page == 1:
         results = movies[:results_per_page]
