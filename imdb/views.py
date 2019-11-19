@@ -11,6 +11,13 @@ def analysis(request):
 
 
 def search(request, page=1):
+    '''
+    This function is called when a user performs a filtered search with inputted search requirements
+
+    :param request: HttpRequest Object
+    :param page: page number
+    :return: a django render function that returns an HttpResponse object
+    '''
     if request.method == 'POST':
         title = request.POST['title']
         min_year = request.POST['min-year']
@@ -29,15 +36,10 @@ def search(request, page=1):
             rating__gte=min_rating).filter(rating__lte=max_rating).filter(
             num_votes__gte=min_votes).filter(num_votes__lte=max_votes).filter(
             runtime__gte=min_runtime).filter(runtime__lte=max_runtime)
-        '''criteria = f"{results.count()} Matches. Results for titles: '{title}' Release Date: {min_year} - {max_year} "\
-                   f"Ranking: {min_rank} - {max_rank} Rating: {min_rating} - {max_rating} " \
-                   f"Votes: {min_votes} - {max_votes}"
-                   '''
 
         context = {'num_results': results.count(), 'min_year': min_year, 'max-year': max_year, 'min_rank': min_rank,
                    'max-rank': max_rank, 'min_rating': min_rating, 'max-rating': max_rating, 'min_votes': min_votes,
                    'max-votes': max_votes, 'min_runtime': min_runtime, 'max-runtime': max_runtime, 'results': results,
-                   #'criteria': criteria,
                    }
         return render(request, 'search.html', context=context)
     else:

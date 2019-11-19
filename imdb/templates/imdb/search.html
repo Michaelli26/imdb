@@ -2,7 +2,6 @@
 
 {% block content %}
     <br/>
-    <!--<h2>{{ criteria }}</h2> -->
 
         <div class="row">
     {% for result in results %}
@@ -14,28 +13,5 @@
     {% endfor %}
         </div>
 
-
-<!--
-         <nav aria-label="Page navigation example">
-           <form method="POST" action="{% url 'search' page=1%}">
-  <ul id="pagination" class="pagination pagination-sm justify-content-center">
-
-<li class="page-item"><a class="page-link" href="#">First</a></li>
-<li class="page-item active"><button class="submit" value="1">1</button></li>
-{% for page_num in display_pages %}
-
-    <li class="page-item{% if page == page_num %} active {% endif %} "></li>
-
-    {% endfor %}
-  <li class="page-item"><a class="page-link" href="#">Last</a></li>
-  </ul>
-               <input type="hidden" name="min-rating" id="min-rating" value="{{ min_rating }}">
-           <input type="hidden" name="min-rating" id="min-rating" value="{{ min_votes }}">
-           <input type="hidden" name="min-rating" id="min-rating" value="{{ min_rank }}">
-           <input type="hidden" name="min-rating" id="min-rating" value="{{ min_year }}">
-           <input type="hidden" name="min-rating" id="min-rating" value="{{ min_runtime }}">
-         </form>
-</nav>
--->
 
 {% endblock %}
