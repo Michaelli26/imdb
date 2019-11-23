@@ -1,5 +1,6 @@
-
+{%  load static %}
 <!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -34,25 +35,32 @@
       }
 
 
+
+
     </style>
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
-  <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <body class="text-center" >
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style="background-color: #e3e2dd;" >
   <header class="masthead mb-auto">
     <div class="inner">
-<nav class="navbar navbar-light" style="background-color: #DCDCDC;">
-    <a class="navbar-brand" href="{% url 'home' %}">Home</a>
-    <a class="navbar-brand" href="{% url 'analysis' %}">Data Analysis</a>
-  </div>
-</nav>
-  </header>
 
+<nav class="navbar navbar-custom" style="background-color: #121212;">
+            <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'Home.png' %}" height="35" width="60"/></a>
+    <a class="navbar-brand" href="{% url 'analysis' %}"><img src="{% static 'Data-Analysis.png' %}" height="35" width="110"/></a>
+  </div>
+        </div>
+</nav>
+
+  </header>
+    <div class="container" style="background-color: white; height:100vh;">
 {% block content %}
 
         {% endblock %}
 
+</div>
 
 
 </div>
