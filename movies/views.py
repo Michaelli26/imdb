@@ -24,7 +24,7 @@ def browse(request, category, page, context={}):
     total_pages = math.ceil(total_results/results_per_page)
 
     context['total_pages'] = total_pages
-    movies = Movie.objects.order_by('-'+category)
+    movies = Movie.objects.order_by('-'+category.lower())
     if category == 'rank':
         movies = movies.reverse()
     if page == 1:
@@ -35,8 +35,8 @@ def browse(request, category, page, context={}):
     context['results'] = results
 
     # create page navigation
-    min_page = page-15
-    max_page = page+15
+    min_page = page-10
+    max_page = page+10
     if min_page <= 0:
         display_pages = range(1, max_page+abs(min_page))
     elif max_page > total_pages:
@@ -46,10 +46,13 @@ def browse(request, category, page, context={}):
     context['display_pages'] = display_pages
     context['page'] = page
 
+
+    context['category'] = category
     if category == 'num_votes':
-        context['category'] = 'Number of Votes'
+        context['category_display'] = 'Number of Votes'
     else:
-        context['category'] = category.capitalize()
+        context['category_display'] = category.capitalize()
+
 
     return render(request, 'results.html', context=context)
 

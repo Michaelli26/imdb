@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div >
     <br/>
-    <h2>Movies by {{ category }}</h2>
+
+    <h2>Movies by {{ category_display }}</h2>
 
         <div class="row">
     {% for result in results %}
@@ -50,5 +52,5 @@
   <li class="page-item"><a class="page-link" href="{% url 'browse' category=category page=total_pages %}">Last</a></li>
   </ul>
 </nav>
-
+</div>
 {% endblock %}

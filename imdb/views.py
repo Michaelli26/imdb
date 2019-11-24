@@ -41,6 +41,7 @@ def search(request, page=1):
                    f"Ranking: {min_rank} - {max_rank} Rating: {min_rating} - {max_rating} " \
                    f"Votes: {min_votes} - {max_votes}"
 
+
         context = {'num_results': results.count(), 'min_year': min_year, 'max-year': max_year, 'min_rank': min_rank,
                    'max-rank': max_rank, 'min_rating': min_rating, 'max-rating': max_rating, 'min_votes': min_votes,
                    'max-votes': max_votes, 'min_runtime': min_runtime, 'max-runtime': max_runtime, 'results': results,
