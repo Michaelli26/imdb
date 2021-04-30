@@ -17,7 +17,7 @@ scipy==1.3.1
 six==1.12.0
 soupsieve==1.9.4
 sqlparse==0.3.0
-urllib3==1.25.6
+urllib3==1.25.8
 --extra-index-url=https://packagecloud.io/github/git-lfs/pypi/simple
 beautifulsoup4==4.8.0
 certifi==2019.9.11
@@ -39,7 +39,7 @@ scipy==1.3.1
 six==1.12.0
 soupsieve==1.9.4
 sqlparse==0.3.0
-urllib3==1.25.6
+urllib3==1.25.8
 beautifulsoup4==4.8.0
 certifi==2019.9.11
 chardet==3.0.4
@@ -62,5 +62,5 @@ scipy==1.3.1
 six==1.12.0
 soupsieve==1.9.4
 sqlparse==0.3.0
-urllib3==1.25.6
+urllib3==1.25.8
 whitenoise==4.1.4
