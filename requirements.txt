@@ -1,5 +1,5 @@
 beautifulsoup4==4.8.0
-certifi==2019.9.11
+certifi==2022.12.7
 chardet==3.0.4
 cycler==0.10.0
 Django==2.2.5
@@ -20,7 +20,7 @@ sqlparse==0.3.0
 urllib3==1.25.6
 --extra-index-url=https://packagecloud.io/github/git-lfs/pypi/simple
 beautifulsoup4==4.8.0
-certifi==2019.9.11
+certifi==2022.12.7
 chardet==3.0.4
 cycler==0.10.0
 Django==2.2.5
@@ -41,7 +41,7 @@ soupsieve==1.9.4
 sqlparse==0.3.0
 urllib3==1.25.6
 beautifulsoup4==4.8.0
-certifi==2019.9.11
+certifi==2022.12.7
 chardet==3.0.4
 cycler==0.10.0
 dj-database-url==0.5.0
